@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -25,12 +26,13 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "通知をセット", Toast.LENGTH_SHORT).show();
                 // 通知に使う情報: Calendar 型
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTimeInMillis(System.currentTimeMillis());
-                calendar.add(Calendar.SECOND, 10);
+                calendar.add(Calendar.SECOND, 3);
 
-                scheduleNotification("10秒後に届く通知です", calendar);
+                scheduleNotification("3秒後に届く通知です", calendar);
             }
         });
     }
